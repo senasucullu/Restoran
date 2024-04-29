@@ -3,14 +3,18 @@ import React from 'react'
 import { AntDesign } from '@expo/vector-icons';
 
 
-export default function SearchBar() {
+export default function SearchBar({onTermChange,onTermSubmit,term}) {
   return (
     <View style={styles.main} >
       <AntDesign style={styles.icon} name="search1" size={24} color="black" />
       <TextInput 
       autoCapitalize='none'
       autoCorrect={false}
-      style={styles.input}/>
+      style={styles.input}
+      value={term}
+      onChangeText={onTermChange}
+      onEndEditing={onTermSubmit}
+      />
     </View>
   )
 }
